@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { badRequest, badImplementation } = require('boom');
-
 const { logger, port, env } = require('./config');
+const { connectDb } = require('./db');
 
 const app = express();
 
@@ -19,6 +19,4 @@ app.use((err, req, res, next) => {
   next(badImplementation(`Ooops! ${message}`));
 });
 
-app.listen(port, () => {
-  logger.info(`Server is listening on port ${port} in ${env} mode`);
-});
+connectDb().then(() => app.listen(port, () => logger.info(`Server is listening on port ${port} in ${env} mode`)));
