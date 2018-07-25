@@ -1,22 +1,10 @@
-const findAll = (req, res) => {
-  res.send('task findAll');
-};
+const BaseController = require('../baseController');
+const model = require('./model');
 
-const create = (req, res) => {
-  res.send('task create');
-};
+class TaskController extends BaseController {
+  constructor() {
+    super(model.name, model.defaultOrder, model.defaultFilter);
+  }
+}
 
-const update = (req, res) => {
-  res.send('task create');
-};
-
-const destroy = (req, res) => {
-  res.send('task destroy');
-};
-
-module.exports = {
-  findAll,
-  create,
-  update,
-  destroy,
-};
+module.exports = new TaskController();

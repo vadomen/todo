@@ -1,22 +1,10 @@
-const findAll = (req, res) => {
-  res.send('category findAll');
-};
+const BaseController = require('../baseController');
+const model = require('./model');
 
-const create = (req, res) => {
-  res.send('category create');
-};
+class CategoryController extends BaseController {
+  constructor() {
+    super(model.name, model.defaultOrder, model.defaultFilter);
+  }
+}
 
-const update = (req, res) => {
-  res.send('category create');
-};
-
-const destroy = (req, res) => {
-  res.send('category destroy');
-};
-
-module.exports = {
-  findAll,
-  create,
-  update,
-  destroy,
-};
+module.exports = new CategoryController();
