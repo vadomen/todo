@@ -8,6 +8,10 @@ class TaskController extends BaseController {
   }
 
   async create(req, res) {
+    const { title } = req.body;
+    if (!title) {
+      return res.status(404).json({ message: 'Title is required' });
+    }
     const { id } = req.params;
     remindHandler(req.body || {}, id);
     return super.create(req, res);
