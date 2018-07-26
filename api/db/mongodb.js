@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const { logger, mongo } = require('../config');
+const { logger, mongo: { connectionString, options } } = require('../config');
 const { timestampPlugin } = require('./plugins/timestamp');
 
 mongoose.Promise = global.Promise;
 mongoose.plugin(timestampPlugin);
 
 const connectDb = function () {
-  return mongoose.connect(mongo.connectionString, { useNewUrlParser: true })
+  return mongoose.connect(connectionString, options)
     .then(() => {
       logger.info('Database connection establishing');
     })

@@ -28,7 +28,7 @@ class BaseController {
     const list = await mongoQuery.exec();
 
     return res.status(200).json(list);
-  };
+  }
 
   async create({ body }, res) {
     const data = await this.model.create(body);
