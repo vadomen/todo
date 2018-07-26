@@ -6,9 +6,9 @@ const schema = new mongoose.Schema({
     required: true,
   },
   description: String,
-});
+}, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
 
-schema.virtual('categories', {
+schema.virtual('tasks', {
   ref: 'Task',
   localField: '_id',
   foreignField: 'categories',

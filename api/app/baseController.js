@@ -7,6 +7,7 @@ class BaseController {
     this.defaultFilter = defaultFilter || null;
     this.create = this.create.bind(this);
     this.findAll = this.findAll.bind(this);
+    this.findById = this.findById.bind(this);
     this.update = this.update.bind(this);
     this.destroy = this.destroy.bind(this);
     this.sort = this.sort.bind(this);
@@ -28,6 +29,15 @@ class BaseController {
     const list = await mongoQuery.exec();
 
     return res.status(200).json(list);
+  }
+
+  async findById({ params: { id }, query: { populate } }, res, forcePopulate) {
+    const mongoQuery = this.model.findById(id);
+    if (populate || forcePopulate) {
+      mongoQuery.populate(populate || forcePopulate);
+    }
+    const item = await mongoQuery.exec();
+    return res.status(200).json(item);
   }
 
   async create({ body }, res) {
