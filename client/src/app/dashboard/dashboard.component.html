@@ -8,7 +8,7 @@
         </div>
         <div class="box-body">
           <ul class="todo-list ui-sortable">
-            <li (click)="getCategoryTasks(category)" *ngFor="let category of categories">
+            <li (click)="getCategoryTasks(category)" *ngFor="let category of categories" class="active">
               {{category.name}}
               <span class="text"></span>
               <div class="tools">
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="col-md-9">
-     <app-tasks [categoryTasks]="tasks"></app-tasks>
+     <app-tasks [categoryTasks]="tasks" [category]="category"></app-tasks>
     </div>
   </div>
   <!-- /.row -->

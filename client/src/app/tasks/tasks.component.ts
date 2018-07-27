@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {TaskService} from "../task.service";
 import {ActivatedRoute} from "@angular/router";
 import {Task} from "../task";
+import {Category} from "../category";
 
 @Component({
   selector: 'app-tasks',
@@ -14,10 +15,10 @@ export class TasksComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
-    private route: ActivatedRoute,
   ) { }
 
   @Input() categoryTasks: Task[] = [];
+  @Input() category: Category;
 
   ngOnInit() {
     this.getTasks()
@@ -27,7 +28,7 @@ export class TasksComponent implements OnInit {
     this.getCategoryTasks()
   }
 
-  getCategoryTasks(){
+  getCategoryTasks() {
     this.tasks = this.categoryTasks;
   }
 

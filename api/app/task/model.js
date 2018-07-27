@@ -6,7 +6,10 @@ const schema = new mongoose.Schema({
     required: true,
   },
   description: String,
-  status: Boolean,
+  status: {
+    type: Boolean,
+    default: false,
+  },
   remind: { type: Date },
   categories: [
     {
@@ -14,7 +17,7 @@ const schema = new mongoose.Schema({
       ref: 'Category',
     },
   ],
-});
+}, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
 
 module.exports = {
   model: mongoose.model('Task', schema),

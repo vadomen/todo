@@ -4,4 +4,5 @@ export class Task {
   description: string;
   categories: [string];
   remind: Date;
+  status: boolean;
 }

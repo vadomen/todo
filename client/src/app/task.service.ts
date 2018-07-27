@@ -28,7 +28,7 @@ export class TaskService {
   }
 
   getTask(id: string): Observable<Task> {
-    const url = `${this.tasksUrl}/${id}`;
+    const url = `${this.tasksUrl}/${id}?populate=categories`;
     return this.http.get<Task>(url).pipe(
       catchError(this.handleError<Task>(`getTasks id=${id}`))
     );

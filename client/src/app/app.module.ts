@@ -11,7 +11,6 @@ import { MessagesComponent }    from './messages/messages.component';
 import { CategoriesDetailComponent } from './categories-detail/categories-detail.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
-import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   imports: [
@@ -28,7 +27,6 @@ import { CategoriesComponent } from './categories/categories.component';
     CategoriesDetailComponent,
     TasksComponent,
     TaskDetailComponent,
-    CategoriesComponent
   ],
   bootstrap: [ AppComponent ]
 })

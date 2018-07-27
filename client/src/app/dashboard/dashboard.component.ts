@@ -12,12 +12,12 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
   categories: Category[] = [];
+  category: Category | false;
   tasks: Task[] = [];
 
   constructor(
     private categoryService: CategoryService,
     private taskService: TaskService,
-    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -26,12 +26,16 @@ export class DashboardComponent implements OnInit {
 
   getCategories(): void {
     this.categoryService.getCategories()
-      .subscribe(categories => this.categories = categories);
+      .subscribe(categories => {
+        this.categories = categories;
+        this.category = false;
+      });
   }
 
   getCategoryTasks(category: Category): void {
     this.categoryService.getCategory(category._id)
       .subscribe(category => {
+        this.category = category;
         this.tasks = category.tasks;
       });
   }

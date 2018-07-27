@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import {ActivatedRoute} from "@angular/router";
+import {pickBy} from 'lodash';
 import {Location} from "@angular/common";
 import {CategoryService} from "../category.service";
 import {Category} from "../category";
@@ -49,7 +50,9 @@ export class CategoriesDetailComponent implements OnInit {
   }
 
   update(): void {
-    this.categoryService.updateCategory(Object.assign(this.category, this.categoryForm.value))
+    const data = pickBy(this.categoryForm.value, x => x !== '');
+    data._id = this.category._id;
+    this.categoryService.updateCategory(data)
       .subscribe(category => this.category = category);
   }
 
