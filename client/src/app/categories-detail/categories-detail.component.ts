@@ -42,7 +42,7 @@ export class CategoriesDetailComponent implements OnInit {
 
   onSubmit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id !== 'new') {
+    if (id) {
       this.update();
     } else {
       this.create();
@@ -52,12 +52,12 @@ export class CategoriesDetailComponent implements OnInit {
   update(): void {
     const data = pickBy(this.categoryForm.value, x => x !== '');
     data._id = this.category._id;
-    this.categoryService.updateCategory(data)
-      .subscribe(category => this.category = category);
+    this.categoryService.updateCategory(data as Category)
+      .subscribe(() => this.goBack());
   }
 
   create(): void {
     this.categoryService.addCategory(this.categoryForm.value as Category)
-      .subscribe(category => this.category = category);
+      .subscribe(() => this.goBack());
   }
 }
