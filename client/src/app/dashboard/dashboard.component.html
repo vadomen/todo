@@ -1,0 +1,27 @@
+<section class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <a routerLink="/categories" class="btn btn-primary btn-block margin-bottom">Manage Categories</a>
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">Categories</h3>
+        </div>
+        <div class="box-body no-padding">
+          <ul class="nav nav-pills nav-stacked">
+            <li *ngFor="let category of categories">
+              <a (click)="getCategoryTasks(category)"><i class="fa fa-file-text-o"></i> {{category.name}}</a>
+            </li>
+            <li>
+              <a routerLink="/dashboard"><i class="fa fa-file-text-o"></i>All tasks</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+    <div class="col-md-9">
+     <app-tasks [categoryTasks]="tasks"></app-tasks>
+    </div>
+  </div>
+  <!-- /.row -->
+</section>
