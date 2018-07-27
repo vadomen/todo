@@ -31,7 +31,7 @@ class BaseController {
     return res.status(200).json(list);
   }
 
-  async findById({ params: { id }, query: { populate } }, res, forcePopulate) {
+  async findById({ params: { id }, query: { populate } }, res, next, forcePopulate = false) {
     const mongoQuery = this.model.findById(id);
     if (populate || forcePopulate) {
       mongoQuery.populate(populate || forcePopulate);
