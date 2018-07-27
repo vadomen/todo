@@ -24,14 +24,19 @@ export class TasksComponent implements OnInit {
   }
 
   ngOnChanges() {
-    this.getTasks()
+    this.getCategoryTasks()
+  }
+
+  getCategoryTasks(){
+    this.tasks = this.categoryTasks;
   }
 
   getTasks(): void {
-    if (this.categoryTasks.length) {
-      this.tasks = this.categoryTasks;
-    } else {
-      this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
-    }
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+  }
+
+  destroy(task: Task): void {
+    this.tasks = this.tasks.filter(e => e !== task);
+    this.taskService.deleteTask(task).subscribe();
   }
 }

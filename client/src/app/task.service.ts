@@ -60,7 +60,8 @@ export class TaskService {
   }
 
   updateTask (task: Task): Observable<any> {
-    return this.http.put(this.tasksUrl, task, httpOptions).pipe(
+    const id = typeof task === 'string' ? task : task._id;
+    return this.http.put(`${this.tasksUrl}/${id}`, task, httpOptions).pipe(
       catchError(this.handleError<any>('updateTask'))
     );
   }

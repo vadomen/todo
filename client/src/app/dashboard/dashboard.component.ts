@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { Task } from '../task';
 import { CategoryService } from '../category.service';
+import { TaskService } from '../task.service';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -15,6 +16,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
+    private taskService: TaskService,
     private route: ActivatedRoute,
   ) { }
 
@@ -32,5 +34,15 @@ export class DashboardComponent implements OnInit {
       .subscribe(category => {
         this.tasks = category.tasks;
       });
+  }
+
+  getTasks(): void {
+    this.taskService.getTasks()
+      .subscribe(tasks => this.tasks = tasks);
+  }
+
+  destroyCategory(category: Category): void {
+    this.categories = this.categories.filter(e => e !== category);
+    this.categoryService.deleteCategory(category).subscribe();
   }
 }
