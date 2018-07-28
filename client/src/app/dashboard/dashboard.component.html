@@ -8,15 +8,17 @@
         </div>
         <div class="box-body">
           <ul class="todo-list ui-sortable">
-            <li (click)="getCategoryTasks(category)" *ngFor="let category of categories" class="active">
-              {{category.name}}
+            <li (click)="getCategoryTasks(cat)" *ngFor="let cat of categories">
+              <span><i *ngIf="category && cat._id === category._id" class="fa  fa-caret-right"></i></span>
+              {{cat.name}}
               <span class="text"></span>
               <div class="tools">
-                <a routerLink="/categories/{{category._id}}"><i class="fa fa-edit"></i></a>
-                <i (click)="destroyCategory(category)" class="fa fa-trash-o"></i>
+                <a routerLink="/categories/{{cat._id}}"><i class="fa fa-edit"></i></a>
+                <i (click)="destroyCategory(cat)" class="fa fa-trash-o"></i>
               </div>
             </li>
-            <li (click)="getTasks(category)">
+            <li (click)="getTasks()">
+              <span><i *ngIf="!category" class="fa  fa-caret-right"></i></span>
               All tasks
             </li>
           </ul>
@@ -30,5 +32,4 @@
      <app-tasks [categoryTasks]="tasks" [category]="category"></app-tasks>
     </div>
   </div>
-  <!-- /.row -->
 </section>
