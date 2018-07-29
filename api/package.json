@@ -4,18 +4,20 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "start-prod": "NODE_ENV=production node index.js",
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
     "lint-me": "eslint \"**/*.js\" --ignore-path .eslintignore --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vadim pospelov",
   "license": "ISC",
   "devEngines": {
-    "node": "10.5.0"
+    "node": "10.5.0",
+    "npm": "6.2.0"
   },
   "engines": {
-    "node": "10.5.0"
+    "node": "10.5.0",
+    "npm": "6.2.0"
   },
   "dependencies": {
     "agenda": "^2.0.0",
