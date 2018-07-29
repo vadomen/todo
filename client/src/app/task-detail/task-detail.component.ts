@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
-import {pickBy} from 'lodash'
+import {pickBy, isBoolean} from 'lodash'
 import {TaskService} from "../task.service";
 import {Task} from '../task';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -19,7 +19,7 @@ export class TaskDetailComponent implements OnInit {
   taskForm = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl(''),
-    status:  new FormControl(false),
+    status:  new FormControl(''),
     remind: new FormControl(''),
   });
 
@@ -74,6 +74,7 @@ export class TaskDetailComponent implements OnInit {
     const data = this.taskForm.value;
     const categoryId = this.route.snapshot.paramMap.get('categoryId');
     data.categories = categoryId ? [categoryId] : [];
+    data.status = isBoolean(data.status) ? data.status : false;
     this.taskService.addTask(this.taskForm.value as Task)
       .subscribe(() => this.goBack());
   }

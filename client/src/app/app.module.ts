@@ -2,6 +2,9 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -19,6 +22,10 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule.forRoot(),
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,

@@ -12,7 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
   categories: Category[] = [];
-  category: Category | false;
+  category: Category | false = false;
   tasks: Task[] = [];
 
   constructor(
@@ -28,7 +28,6 @@ export class DashboardComponent implements OnInit {
     this.categoryService.getCategories()
       .subscribe(categories => {
         this.categories = categories;
-        this.category = false;
       });
   }
 

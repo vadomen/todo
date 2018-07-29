@@ -26,7 +26,7 @@ const schedule = async (date, title) => {
 
 const remindHandler = async ({ remind, title }, id, model) => {
   const now = moment();
-  const remindDate = moment(remind).isValid() ? moment(remind) : null;
+  const remindDate = remind && moment(remind).isValid() ? moment(remind) : null;
   let task;
   if (remindDate && remindDate.isAfter(now)) {
     if (!title) {
