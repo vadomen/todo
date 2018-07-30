@@ -9,4 +9,4 @@ It also uses the fake SMTP server ([mailtrap](https://mailtrap.io/)) for storing
 
 ## Run
 
-Run `npm i && npm start` from root wil start both client and API.
+Run `npm i && npm start` from root wilд start both client and API.
