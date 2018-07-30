@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start --prefix api & npm start --prefix client"
+    "start": "npm start --prefix api & npm start --prefix client",
+    "postinstall": "cd api && npm i && cd ../client && npm i"
   },
   "repository": {
     "type": "git",
