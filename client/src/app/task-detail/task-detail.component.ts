@@ -37,7 +37,7 @@ export class TaskDetailComponent implements OnInit {
 
   getTask(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    if (id && id !== 'new') {
       this.taskService.getTask(id).subscribe(task => this.task = task);
     }
   }
@@ -56,7 +56,7 @@ export class TaskDetailComponent implements OnInit {
 
   onSubmit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    if (id && id !== 'new') {
       this.update();
     } else {
       this.create();

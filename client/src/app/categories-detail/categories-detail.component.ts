@@ -32,7 +32,7 @@ export class CategoriesDetailComponent implements OnInit {
 
   getCategory(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id) {
+    if(id && id !== 'new') {
       this.categoryService.getCategory(id)
         .subscribe(category => this.category = category);
     }
@@ -44,7 +44,7 @@ export class CategoriesDetailComponent implements OnInit {
 
   onSubmit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    if (id && id !== 'new') {
       this.update();
     } else {
       this.create();
