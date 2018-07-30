@@ -1,5 +1,6 @@
 # To Do API
 
+API service for To Do application. To start API separately run `npm start`.
 
 ## Allowed endpoints
  
