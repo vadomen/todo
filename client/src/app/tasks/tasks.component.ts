@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {TaskService} from "../task.service";
+import {TaskService} from "../services/task.service";
 import {ActivatedRoute} from "@angular/router";
-import {Task} from "../task";
-import {Category} from "../category";
+import {Task} from "../models/task";
+import {Category} from "../models/category";
 
 @Component({
   selector: 'app-tasks',

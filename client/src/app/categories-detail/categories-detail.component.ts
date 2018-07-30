@@ -4,8 +4,8 @@ import { Validators } from '@angular/forms';
 import {ActivatedRoute} from "@angular/router";
 import {pickBy} from 'lodash';
 import {Location} from "@angular/common";
-import {CategoryService} from "../category.service";
-import {Category} from "../category";
+import {CategoryService} from "../services/category.service";
+import {Category} from "../models/category";
 
 @Component({
   selector: 'app-categories-detail',

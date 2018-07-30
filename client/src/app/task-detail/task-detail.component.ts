@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {pickBy, isBoolean} from 'lodash'
-import {TaskService} from "../task.service";
-import {Task} from '../task';
+import {TaskService} from "../services/task.service";
+import {Task} from '../models/task';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Category} from "../category";
-import {CategoryService} from "../category.service";
+import {Category} from "../models/category";
+import {CategoryService} from "../services/category.service";
 
 @Component({
   selector: 'app-task-detail',
