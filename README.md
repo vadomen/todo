@@ -1,12 +1,17 @@
-# To Do
+# To Do API
 
-This is a simple To Do application which allows to store tasks by categories.
-The API side uses [Express](http://expressjs.com/) Framework with modules architecture.
-The data is stored in in MongoDB using [mlab](https://mlab.com/) sandbox.
-The remind functionality works using [agenda](https://www.npmjs.com/package/agenda) package. 
-Also was used the fake SMTP server [mailtrap](https://mailtrap.io/) for keeping remind emails there.
-It also uses the fake SMTP server ([mailtrap](https://mailtrap.io/)) for storing remind emails there.
+API service for To Do application. To start API separately run `npm start`.
 
-## Run
+## Allowed endpoints
+ 
+### For Tasks, Categories
+ - GET `http://localhost:3000/tasks` list of tasks
+ - GET `http://localhost:3000/tasks/{_id}` single item
+ - GET `http://localhost:3000/tasks/{_id}?populate=categories` with populated categories
+ - POST `http://localhost:3000/tasks` create a new item
+ - PUT `http://localhost:3000/tasks/{_id}` update item
 
-Run `npm i && npm start` from root will start both client and API.
+ - GET`http://localhost:3000/categories` list of categories
+ - GET`http://localhost:3000/categories/{_id}` single item
+ - POST `http://localhost:3000/categories` create a new item
+ - PUT `http://localhost:3000/categories/{_id}` update item
