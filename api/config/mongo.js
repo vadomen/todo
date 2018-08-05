@@ -1,7 +1,7 @@
 // mlab.com sandbox credentials is used as a fallback
-const host = process.env.DB_HOST || 'ds153851.mlab.com';
-const username = process.env.DB_USERNAME || 'todo';
-const password = process.env.DB_PASSWORD || 'todo_db0';
+const host = process.env.DB_HOST || '';
+const username = process.env.DB_USERNAME || '';
+const password = process.env.DB_PASSWORD || '';
 const port = process.env.DB_PORT || 53851;
 const dbName = process.env.DB_NAME || 'todo';
 
