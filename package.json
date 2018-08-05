@@ -1,21 +1,77 @@
 {
-  "name": "todo",
+  "name": "Todo",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start --prefix client",
-    "postinstall": "cd client && npm i"
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "start": "node server.js",
+    "test": "ng test",
+    "build": "ng build --prod",
+    "e2e": "ng e2e",
+    "ng": "ng",
+    "postinstall": "ng build --aot --prod",
+    "prestart": "npm i"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vadomen/todo.git"
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devEngines": {
+    "node": "10.5.0"
   },
-  "author": "Vadim Pospelov",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vadomen/todo/issues"
+  "engines": {
+    "node": "10.5.0"
   },
-  "homepage": "https://github.com/vadomen/todo#readme"
+  "dependencies": {
+    "@angular-devkit/build-angular": "~0.6.0",
+    "@angular/animations": "^6.1.0",
+    "@angular/cdk": "^6.4.1",
+    "@angular/cli": "^6.1.2",
+    "@angular/common": "^6.0.0",
+    "@angular/compiler": "^6.0.0",
+    "@angular/compiler-cli": "^6.1.1",
+    "@angular/core": "^6.0.0",
+    "@angular/forms": "^6.0.0",
+    "@angular/http": "^6.0.0",
+    "@angular/platform-browser": "^6.0.0",
+    "@angular/platform-browser-dynamic": "^6.0.0",
+    "@angular/router": "^6.0.0",
+    "@angular/upgrade": "^6.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^2.2.1",
+    "angular-in-memory-web-api": "^0.6.0",
+    "bootstrap": "^4.0.0-alpha.6",
+    "core-js": "^2.5.4",
+    "express": "^4.16.3",
+    "font-awesome": "^4.7.0",
+    "ng-pick-datetime": "^6.0.10",
+    "path": "^0.12.7",
+    "rxjs": "^6.0.0",
+    "typescript": "2.7.2",
+    "zone.js": "^0.8.24"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.6.0",
+    "@angular/cli": "^6.1.2",
+    "@angular/compiler-cli": "^6.1.1",
+    "@angular/platform-server": "^6.0.0",
+    "@types/jasmine": "~2.8.0",
+    "@types/jasminewd2": "^2.0.3",
+    "@types/node": "^6.0.45",
+    "enhanced-resolve": "^3.3.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~1.7.1",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~1.4.2",
+    "karma-jasmine": "~1.1.1",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "lodash": "^4.17.10",
+    "phantomjs-prebuilt": "^2.1.7",
+    "protractor": "~5.3.0",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "typescript": "2.7.2"
+  },
+  "repository": {}
 }
