@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -14,7 +15,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
 
-  private categoriesUrl = 'http://localhost:3000/categories';
+  private categoriesUrl = `${environment.apiHost}/categories`;
 
   constructor(
     private http: HttpClient,

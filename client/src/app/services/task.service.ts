@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import {environment} from '../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class TaskService {
 
-  private tasksUrl = 'http://localhost:3000/tasks';
+  private tasksUrl = `${environment.apiHost}/tasks`;
 
   constructor(
     private http: HttpClient,
