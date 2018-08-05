@@ -2,6 +2,8 @@
 
 API service for To Do application. To start API separately run `npm start`.
 
+Heroku [URL](https://todo-test-task-api.herokuapp.com)
+
 ## Allowed endpoints
  
 ### For Tasks, Categories
