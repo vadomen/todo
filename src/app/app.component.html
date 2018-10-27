@@ -1,4 +1,10 @@
-<div class="content-wrapper" style="min-height: 990px;">
- <router-outlet></router-outlet>
- <app-messages></app-messages>
-</div>
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo">TODO</div>
+  </nz-header>
+  <nz-layout>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+  </nz-layout>
+  <nz-footer>footer</nz-footer>
+</nz-layout>

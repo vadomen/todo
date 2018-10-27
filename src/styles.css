@@ -1,1 +1,10 @@
 @import "~ng-pick-datetime/assets/style/picker.min.css";
+[nz-button] {
+  margin: 5px;
+}
+.right {
+  float: right
+}
+.logo {
+  color: white;
+}

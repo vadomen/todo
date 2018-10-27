@@ -3,7 +3,6 @@ import { Category } from '../models/category';
 import { Task } from '../models/task';
 import { CategoryService } from '../services/category.service';
 import { TaskService } from '../services/task.service';
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',

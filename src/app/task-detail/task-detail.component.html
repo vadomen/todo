@@ -1,48 +1,37 @@
-<section class="content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 *ngIf="task" class="box-title">{{task.title | uppercase}} Details</h3>
-          <h3 *ngIf="!task" class="box-title">Create a new task in a {{category ? category.name : '' | uppercase}}
-            category </h3>
-        </div>
-        <form class="form-horizontal" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-          <div class="box-body">
-
-            <div class="form-group">
-              <label for="inputName" class="col-sm-2 control-label">Name</label>
-              <div class="col-sm-10">
-                <input type="text" formControlName="title" value="{{task ? task.title : '' }}" class="form-control"
-                       id="inputName" placeholder="Title" autocomplete="off" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inputDescription" class="col-sm-2 control-label">Description</label>
-              <div class="col-sm-10">
-                <input type="text" formControlName="description" value="{{task ? task.description : '' }}"
-                       class="form-control" id="inputDescription" placeholder="Description" autocomplete="off">
-              </div>
-            </div>
-
-            <div class="checkbox">
-              <label>
-                <input formControlName="status" type="checkbox" [checked]="task && task.status"> Status
-              </label>
-            </div>
-
-            <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="remind" placeholder="Date Time" value="{{task && task.remind}}">
-            <owl-date-time #dt1></owl-date-time>
-
-            <hr>
-          </div>
-          <div class="box-footer">
-            <a (click)="goBack()" class="btn btn-default">Go back</a>
-            <button type="submit" class="btn btn-default pull-right">Save</button>
-          </div>
-        </form>
-      </div>
-    </div>
+<div class="box box-info">
+  <div class="box-header with-border">
+    <a (click)="goBack()" nz-button nzType="default">Go back</a>
+    <h3 *ngIf="task" class="box-title">{{task.title | uppercase}} Details</h3>
+    <h3 *ngIf="!task" class="box-title">Create a new task in a {{category ? category.name : '' | uppercase}} category </h3>
   </div>
-</section>
+  <form nz-form [nzLayout]="'inline'" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <nz-form-item>
+
+      <nz-form-label [nzSpan]="6" nzFor="inputName">Name</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="name" formControlName="title" type="text" value="{{task ? task.title : '' }}" id="inputName" placeholder="Name" autocomplete="off" required>
+      </nz-form-control>
+
+      <nz-form-label [nzSpan]="6" nzFor="inputDescription">Description</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input name="description" formControlName="description" type="text" value="{{task ? task.description : '' }}" id="inputDescription" placeholder="Description" autocomplete="off" required>
+      </nz-form-control>
+
+      <nz-form-label [nzSpan]="6" nzFor="status">Status</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-switch [(ngModel)]="task && task.status" formControlName="status" id="status"></nz-switch>
+      </nz-form-control>
+
+      <nz-form-label [nzSpan]="6" nzFor="dateTime">Select Time</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-date-picker nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" id="dateTime" nzPlaceHolder="Select Time" [(ngModel)]="task && task.remind" formControlName="remind"></nz-date-picker>
+      </nz-form-control>
+
+    </nz-form-item>
+    <nz-form-item nz-row style="margin-bottom:8px;">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Save</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

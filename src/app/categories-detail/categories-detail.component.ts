@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import {ActivatedRoute} from "@angular/router";
 import {pickBy} from 'lodash';
 import {Location} from "@angular/common";
@@ -18,7 +17,6 @@ export class CategoriesDetailComponent implements OnInit {
     name: new FormControl('', Validators.required),
     description: new FormControl('')
   });
-
 
   constructor(
     private route: ActivatedRoute,
@@ -42,7 +40,7 @@ export class CategoriesDetailComponent implements OnInit {
     this.location.back();
   }
 
-  onSubmit(): void {
+  submitForm(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id && id !== 'new') {
       this.update();
