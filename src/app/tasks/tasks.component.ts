@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {TaskService} from "../services/task.service";
+import {CategoryService} from "../services/category.service";
 import {ActivatedRoute} from "@angular/router";
 import {Task} from "../models/task";
 import {Category} from "../models/category";
@@ -9,27 +10,30 @@ import {Category} from "../models/category";
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent {
   tasks: Task[] = [];
   task: Task;
 
   constructor(
     private taskService: TaskService,
+    private categoryService: CategoryService,
+    private route: ActivatedRoute
   ) { }
 
-  @Input() categoryTasks: Task[] = [];
   @Input() category: Category;
 
-  ngOnInit() {
-    this.getTasks()
-  }
-
   ngOnChanges() {
-    this.getCategoryTasks()
-  }
+    if(this.category && this.category.tasks) {
+      this.tasks = this.category.tasks;
+      return;
+    }
 
-  getCategoryTasks() {
-    this.tasks = this.categoryTasks;
+    const categoryId: string = this.route.snapshot.queryParamMap.get('category');
+    if(!categoryId) return this.getTasks();
+    this.categoryService.getCategory(categoryId)
+      .subscribe(category => {
+        this.tasks = category.tasks;
+      });
   }
 
   getTasks(): void {

@@ -1,36 +1,10 @@
 <nz-layout>
   <nz-sider [nzWidth]="300" style="background:#fff; padding: 24px; min-height: 280px; ">
-    <div class="box box-primary">
-      <div class="box-header ui-sortable-handle">
-        <h3 class="box-title">Categories</h3>
-        <a routerLink="/categories/new" nz-button nzType="primary">Add category</a>
-      </div>
-      <div class="box-body">
-        <ul class="todo-list ui-sortable">
-          <li (click)="getCategoryTasks(cat)" *ngFor="let cat of categories">
-            <span>
-              <i *ngIf="category && cat._id === category._id" nz-icon type="caret-right" theme="outline"></i>
-            </span>
-            {{cat.name}}
-            <span class="text"></span>
-            <div class="tools">
-              <a routerLink="/categories/{{cat._id}}">
-                <i nz-icon type="edit" theme="outline"></i>
-              </a>
-              <i nz-icon (click)="destroyCategory(cat)" type="delete" theme="outline" style="cursor: pointer;"></i>
-            </div>
-          </li>
-          <li (click)="getTasks()">
-            <span><i *ngIf="!category" nz-icon type="caret-right" theme="outline"></i></span>
-            All tasks
-          </li>
-        </ul>
-      </div>
-    </div>
+    <app-categories (currentCategory)="onSelectCategory($event)"></app-categories>
   </nz-sider>
   <nz-layout>
     <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
-      <app-tasks [categoryTasks]="tasks" [category]="category"></app-tasks>
+      <app-tasks [category]="category"></app-tasks>
     </nz-content>
   </nz-layout>
 </nz-layout>

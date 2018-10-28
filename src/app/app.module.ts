@@ -16,6 +16,7 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { CategoriesComponent } from './categories/categories.component';
 
 registerLocaleData(en);
 
@@ -38,6 +39,7 @@ registerLocaleData(en);
     CategoriesDetailComponent,
     TasksComponent,
     TaskDetailComponent,
+    CategoriesComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [{ provide: NZ_I18N, useValue: en_US }]
