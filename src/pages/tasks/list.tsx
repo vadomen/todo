@@ -12,7 +12,7 @@ import { find } from './api';
 import { head } from './config';
 
 class List extends Component {
-// @ts-ignore
+  // @ts-ignore
   constructor(props, context) {
     super(props, context);
     this.state = { data: [] };
@@ -30,7 +30,11 @@ class List extends Component {
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              {head.map(row => <TableCell align="right" key={row.id}>{row.label}</TableCell>)}
+              {head.map(row => (
+                <TableCell align="right" key={row.id}>
+                  {row.label}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -39,7 +43,9 @@ class List extends Component {
             {this.state.data.map(n => {
               return (
                 <TableRow key={n._id}>
-                  <TableCell component="th" scope="row">{n.status ? 'Done' : 'In progress'}</TableCell>
+                  <TableCell component="th" scope="row">
+                    {n.status ? 'Done' : 'In progress'}
+                  </TableCell>
                   <TableCell align="right">{n.title}</TableCell>
                   <TableCell align="right">{n.description}</TableCell>
                   <TableCell align="right">{n.remind}</TableCell>
@@ -56,7 +62,7 @@ class List extends Component {
 
 // @ts-ignore
 List.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 // @ts-ignore
 const TasksList = withStyles(listStyles)(List);

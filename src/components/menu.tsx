@@ -36,8 +36,6 @@ export const Menu = (
   </div>
 );
 
-
-
 // import React from 'react';
 // import { MenuList, MenuItem } from '@material-ui/core';
 // import { Link } from 'react-router-dom';

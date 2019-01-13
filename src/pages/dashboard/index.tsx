@@ -6,22 +6,22 @@ import classNames from 'classnames';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from "@material-ui/core/IconButton/IconButton";
-import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from '@material-ui/core/IconButton/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Divider from "@material-ui/core/Divider";
+import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import { withStyles } from '@material-ui/core/styles';
 
 import { Menu } from '../../components/menu';
-import { TasksList } from '../tasks'
+import { TasksList } from '../tasks';
 import { styles } from './styles';
 
 class Dashboard extends React.Component {
   state = {
-    open: true,
+    open: true
   };
 
   handleDrawerOpen = () => {
@@ -41,16 +41,22 @@ class Dashboard extends React.Component {
         <CssBaseline />
         <AppBar
           position="absolute"
-          className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
+          className={classNames(
+            classes.appBar,
+            this.state.open && classes.appBarShift
+          )}
         >
-          <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
+          <Toolbar
+            disableGutters={!this.state.open}
+            className={classes.toolbar}
+          >
             <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
               className={classNames(
                 classes.menuButton,
-                this.state.open && classes.menuButtonHidden,
+                this.state.open && classes.menuButtonHidden
               )}
             >
               <MenuIcon />
@@ -69,7 +75,10 @@ class Dashboard extends React.Component {
         <Drawer
           variant="permanent"
           classes={{
-            paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+            paper: classNames(
+              classes.drawerPaper,
+              !this.state.open && classes.drawerPaperClose
+            )
           }}
           open={this.state.open}
         >
@@ -103,7 +112,7 @@ class Dashboard extends React.Component {
 
 // @ts-ignore
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 // @ts-ignore

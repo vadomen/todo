@@ -1,13 +1,11 @@
 const listStyles = {
   root: {
     width: '100%',
-    overflowX: 'auto',
+    overflowX: 'auto'
   },
   table: {
-    minWidth: 700,
-  },
+    minWidth: 700
+  }
 };
 
-export {
-  listStyles
-}
+export { listStyles };

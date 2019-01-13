@@ -7,7 +7,7 @@ function TodoApp() {
   return (
     <Router>
       <div>
-        <Dashboard/>
+        <Dashboard />
         {BaseRouter}
       </div>
     </Router>
