@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import BaseRouter from './BaseRouter';
-import Menu from './components/menu';
+import Dashboard from './pages/dashboard';
 
 function TodoApp() {
   return (
     <Router>
       <div>
-        {Menu}
+        <Dashboard/>
         {BaseRouter}
       </div>
     </Router>
